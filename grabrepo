@@ -1,0 +1,2 @@
+curl https://api.github.com/search/repositories?q=$1 | jq .items | grep git_url | sed 's/\ \ \ \ \"git_url\":\ \"git\:\/\///g' | sed 's/\",//g' | xargs -n1 -I{} echo 'git@{}'
+
